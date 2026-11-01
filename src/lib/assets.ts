@@ -144,17 +144,16 @@ export const certificate = {
 };
 
 /**
- * CONFIGURATION PLACEHOLDERS
+ * SITE CONFIGURATION
  * ---------------------------------------------------------------------------
- * No phone number, WhatsApp number, or social profile was present in the
- * supplied assets. Replace these before launch — every place these constants
- * are used is clearly marked in the UI as well.
+ * Contact details used across the site (contact section, footer, privacy
+ * policy). Edit here to update them everywhere.
  */
 export const CONFIG = {
-  phoneDisplay: "+91 XXXXX-XXXXX",
-  phoneHref: "tel:+91XXXXXXXXXX",
-  whatsappHref: "https://wa.me/91XXXXXXXXXX",
-  email: "info@jtechinstitute.in",
+  phoneDisplay: "+91 93952 31669",
+  phoneHref: "tel:+919395231669",
+  whatsappHref: "https://wa.me/919395231669",
+  email: "ravishah456789@gmail.com",
   address: {
     line1: "Nazira Town, Puja Mandir Complex, 1st Floor",
     line2: "Sivasagar, Nazira, Assam \u2013 785685, India",

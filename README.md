@@ -77,29 +77,24 @@ for reference but are not rendered.
 
 ---
 
-## 5. Configuration placeholders — **replace before launch**
+## 5. Site configuration
 
-No phone number, WhatsApp number, or verified map coordinates were present in the
-supplied assets. These are clearly marked with `Configure` badges in the Contact
-section UI and centralised in one place for easy editing:
+Contact details are centralised in one place and used by the Contact section,
+footer, and privacy policy page:
 
 **`src/lib/assets.ts` → `CONFIG` object:**
 
 ```ts
 export const CONFIG = {
-  phoneDisplay: "+91 XXXXX-XXXXX",
-  phoneHref: "tel:+91XXXXXXXXXX",
-  whatsappHref: "https://wa.me/91XXXXXXXXXX",
-  email: "info@jtechinstitute.in",
-  address: { ... },     // already correct, from supplied brief
+  phoneDisplay: "+91 93952 31669",
+  phoneHref: "tel:+919395231669",
+  whatsappHref: "https://wa.me/919395231669",
+  email: "ravishah456789@gmail.com",
+  address: { ... },     // from supplied brief
   mapsQuery: "...",     // used to build a Google Maps embed by place search,
                          // since no verified lat/lng was supplied
 };
 ```
-
-Replace `phoneDisplay`, `phoneHref`, `whatsappHref`, and `email` with the
-institute's real contact details. The address is already filled in correctly
-from the brief.
 
 ### Contact form backend
 

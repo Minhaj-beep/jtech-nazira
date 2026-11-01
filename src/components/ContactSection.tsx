@@ -35,25 +35,16 @@ export default function ContactSection() {
                 <a href={CONFIG.phoneHref} className="hover:text-techblue-500">
                   {CONFIG.phoneDisplay}
                 </a>
-                <span className="ml-2 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
-                  Configure
-                </span>
               </InfoRow>
               <InfoRow icon={MessageCircle} label="WhatsApp">
                 <a href={CONFIG.whatsappHref} className="hover:text-techblue-500">
                   Message J.TECH
                 </a>
-                <span className="ml-2 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
-                  Configure
-                </span>
               </InfoRow>
               <InfoRow icon={Mail} label="Email">
                 <a href={`mailto:${CONFIG.email}`} className="hover:text-techblue-500">
                   {CONFIG.email}
                 </a>
-                <span className="ml-2 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
-                  Configure
-                </span>
               </InfoRow>
             </div>
 
