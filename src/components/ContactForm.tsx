@@ -218,7 +218,11 @@ export default function ContactForm() {
       )}
 
       <p className="mt-5 text-xs leading-relaxed text-ink/50">
-        Your details are used only to respond to your enquiry and are not shared with third parties.
+        Your details are used only to respond to your enquiry and are not shared with third parties. See our{" "}
+        <a href="/privacy-policy/" className="font-medium text-techblue-600 hover:underline">
+          Privacy Policy
+        </a>
+        .
       </p>
 
       <button type="submit" disabled={status === "submitting"} className="btn-primary mt-5 w-full sm:w-auto">

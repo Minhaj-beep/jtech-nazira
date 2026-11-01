@@ -7,5 +7,11 @@ export default defineConfig({
   build: {
     // Keep videos/images as static assets copied as-is rather than inlined.
     assetsInlineLimit: 0,
+    rollupOptions: {
+      input: {
+        main: "index.html",
+        privacy: "privacy-policy/index.html",
+      },
+    },
   },
 });

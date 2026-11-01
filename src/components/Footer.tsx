@@ -1,16 +1,17 @@
 import { logo, CONFIG } from "../lib/assets";
 
 const QUICK_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Training", href: "#training" },
-  { label: "Practical Lab", href: "#practical-lab" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Training", href: "/#training" },
+  { label: "Practical Lab", href: "/#practical-lab" },
 ];
 
 const MORE_LINKS = [
-  { label: "Gallery", href: "#gallery" },
-  { label: "Certification", href: "#certification" },
-  { label: "Contact", href: "#contact" },
+  { label: "Gallery", href: "/#gallery" },
+  { label: "Certification", href: "/#certification" },
+  { label: "Contact", href: "/#contact" },
+  { label: "Privacy Policy", href: "/privacy-policy/" },
 ];
 
 export default function Footer() {
@@ -20,7 +21,7 @@ export default function Footer() {
     <footer className="bg-navy-950 py-16 text-white/70">
       <div className="container-tight grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <a href="#home" className="flex items-center gap-2.5">
+          <a href="/#home" className="flex items-center gap-2.5">
             <img src={logo} alt="J.TECH Institute of Advanced Technology logo" className="h-10 w-10 rounded-md object-cover" />
             <span className="font-display text-sm font-bold tracking-tight text-white">J.TECH</span>
           </a>
