@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Phone, MessageCircle } from "lucide-react";
 import { CONFIG } from "../lib/assets";
@@ -14,7 +15,9 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
-  return (
+  // Portal to <body>: the header's backdrop-filter would otherwise become the
+  // containing block for this fixed overlay and clip it to the header's height.
+  return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
@@ -22,7 +25,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-[60] bg-navy-900 lg:hidden"
+          className="fixed inset-0 z-[60] overflow-y-auto bg-navy-900 lg:hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
@@ -79,6 +82,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           </div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

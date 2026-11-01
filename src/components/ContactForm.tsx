@@ -1,6 +1,7 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, AlertCircle, Loader2, Send } from "lucide-react";
+import { CONFIG } from "../lib/assets";
 
 interface FormState {
   name: string;
@@ -26,22 +27,30 @@ type SubmitStatus = "idle" | "submitting" | "success" | "error";
 /**
  * ADAPTER FUNCTION
  * ---------------------------------------------------------------------------
- * Replace the body of this function to connect a real backend: a form
- * endpoint (e.g. Formspree/Getform), a serverless function, or a direct API
- * call to your CRM/email service. It currently simulates a network call so
- * the form is fully testable without a backend configured.
+ * Delivers the enquiry to J.TECH on WhatsApp: opens a chat with
+ * CONFIG.leadsWhatsapp pre-filled with the enquiry, and the visitor taps Send.
+ * Must be called synchronously from the submit handler (before any await) so
+ * browsers treat window.open as user-initiated and don't block it.
  */
 async function submitEnquiry(data: Omit<FormState, "company">): Promise<{ ok: boolean }> {
-  // Example real integration:
-  // const res = await fetch("https://your-endpoint.example.com/api/enquiry", {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify(data),
-  // });
-  // return { ok: res.ok };
+  const lines = [
+    "*New enquiry from jtechinstitute.in*",
+    "",
+    `*Name:* ${data.name.trim()}`,
+    `*Phone:* ${data.phone.trim()}`,
+    data.email.trim() ? `*Email:* ${data.email.trim()}` : null,
+    data.interest ? `*Interest:* ${data.interest}` : null,
+    "",
+    `*Message:* ${data.message.trim()}`,
+  ].filter((line) => line !== null);
 
-  await new Promise((resolve) => setTimeout(resolve, 900));
-  console.info("Enquiry submitted (adapter placeholder):", data);
+  const url = `https://wa.me/${CONFIG.leadsWhatsapp}?text=${encodeURIComponent(lines.join("\n"))}`;
+
+  // Fall back to same-tab navigation if a popup blocker stops the new tab.
+  // ("noopener" isn't passed because it makes window.open always return null.)
+  const win = window.open(url, "_blank");
+  if (win) win.opener = null;
+  else window.location.href = url;
   return { ok: true };
 }
 
@@ -117,10 +126,10 @@ export default function ContactForm() {
         <span className="flex h-14 w-14 items-center justify-center rounded-full bg-techblue-50">
           <CheckCircle2 className="h-7 w-7 text-techblue-500" aria-hidden />
         </span>
-        <h3 className="mt-5 text-lg font-bold text-navy-900">Enquiry Sent</h3>
+        <h3 className="mt-5 text-lg font-bold text-navy-900">Almost Done!</h3>
         <p className="mt-2 max-w-sm text-sm leading-relaxed text-ink/70">
-          Thank you for reaching out to J.TECH Institute of Advanced Technology. We'll get back to
-          you as soon as possible.
+          WhatsApp has opened with your enquiry. Tap <strong>Send</strong> in WhatsApp to deliver
+          it to J.TECH, and we'll get back to you as soon as possible.
         </p>
         <button type="button" onClick={() => setStatus("idle")} className="btn-ghost-navy mt-6">
           Send another enquiry
@@ -234,7 +243,7 @@ export default function ContactForm() {
         ) : (
           <>
             <Send className="h-4 w-4" aria-hidden />
-            Send Enquiry
+            Send Enquiry on WhatsApp
           </>
         )}
       </button>

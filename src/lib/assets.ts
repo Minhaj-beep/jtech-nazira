@@ -154,6 +154,8 @@ export const CONFIG = {
   phoneHref: "tel:+919395231669",
   whatsappHref: "https://wa.me/919395231669",
   email: "ravishah456789@gmail.com",
+  // WhatsApp number (country code, digits only) that contact form enquiries are sent to.
+  leadsWhatsapp: "919113918441",
   address: {
     line1: "Nazira Town, Puja Mandir Complex, 1st Floor",
     line2: "Sivasagar, Nazira, Assam \u2013 785685, India",

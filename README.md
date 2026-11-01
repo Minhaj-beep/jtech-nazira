@@ -96,20 +96,14 @@ export const CONFIG = {
 };
 ```
 
-### Contact form backend
+### Contact form delivery
 
-The enquiry form (`src/components/ContactForm.tsx`) is fully validated and
-functional on the front end, but currently **simulates** a network call via an
-adapter function so it can be tested with no backend configured:
-
-```ts
-async function submitEnquiry(data) {
-  // Replace this body with a real fetch() call to your endpoint,
-  // e.g. Formspree, Getform, a serverless function, or your own API.
-}
-```
-
-Search for `ADAPTER FUNCTION` in that file for the exact spot to edit.
+The enquiry form (`src/components/ContactForm.tsx`) sends leads to WhatsApp.
+On submit it opens a WhatsApp chat with `CONFIG.leadsWhatsapp` pre-filled
+with the visitor's enquiry; the visitor taps Send to deliver it. Change the
+number in `src/lib/assets.ts`. To deliver leads silently to a server instead
+(e.g. Formspree, a serverless function, or the WhatsApp Business API), edit
+the function marked `ADAPTER FUNCTION` in that file.
 
 ---
 
