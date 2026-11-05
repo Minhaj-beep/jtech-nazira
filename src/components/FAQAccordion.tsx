@@ -25,6 +25,10 @@ const FAQS = [
     a: "Use the enquiry form in the Contact section below, or call the institute directly. Contact J.TECH directly for current batch, eligibility, duration, and admission details.",
   },
   {
+    q: "Are course fees refundable?",
+    a: "No. All fees paid to J.TECH Institute of Advanced Technology, including admission and course fees, are non-refundable once paid. We encourage you to visit the institute and clear any questions before enrolling.",
+  },
+  {
     q: "Can I visit the institute before enrolling?",
     a: "Contact J.TECH directly to arrange a visit and see the training lab in person before enrolling.",
   },

@@ -66,7 +66,11 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-tight mt-12 border-t border-white/8 pt-6">
+      <div className="container-tight mt-12 space-y-2 border-t border-white/8 pt-6">
+        <p className="text-xs text-white/50">
+          <strong className="font-semibold text-white/65">No refunds:</strong> all admission and
+          course fees are non-refundable once paid.
+        </p>
         <p className="text-xs text-white/35">
           &copy; {year} J.TECH Institute of Advanced Technology. All rights reserved.
         </p>
